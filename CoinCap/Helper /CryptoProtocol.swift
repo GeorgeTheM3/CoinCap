@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CryptoProtocol: AnyObject {
-    func getCryptoData(data: CryptoData)
+    func getCryptoCoin(data: CryptoCoin)
 }

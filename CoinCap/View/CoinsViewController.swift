@@ -14,7 +14,7 @@ class CoinsViewController: UIViewController {
     let numberOfItems = CGFloat(1)
     
     let presenter = Presenter()
-    var coinsData: [Coin] = []
+    var criptoCoins: [CryptoCoin] = []
     
     private lazy var coinsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,7 +46,7 @@ class CoinsViewController: UIViewController {
 
 extension CoinsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        coinsData.count
+        criptoCoins.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,13 +68,13 @@ extension CoinsViewController: UICollectionViewDataSource {
 
 extension CoinsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(coinsData[indexPath.row].name)")
+        print(criptoCoins[indexPath.item].data.name)
     }
 }
 
 extension CoinsViewController: CryptoProtocol {
-    func getCryptoData(data: CryptoData) {
-        coinsData = data.data
+    func getCryptoCoin(data: CryptoCoin) {
+        criptoCoins.append(data)
         DispatchQueue.main.async {
             self.coinsCollectionView.reloadData()
         }

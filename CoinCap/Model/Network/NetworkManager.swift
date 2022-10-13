@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -25,5 +26,14 @@ class NetworkManager {
                 print(error.localizedDescription)
             }
         }.resume()
+    }
+    
+    func loadImage(url: String, completion: @escaping (UIImage) -> Void) {
+        let imageURL = URL(string: url)
+        guard let urlPhoto = imageURL else { return }
+        guard let imageData = try? Data(contentsOf: urlPhoto) else { return }
+        if let image = UIImage(data: imageData) {
+            completion(image)
+        }
     }
 }
