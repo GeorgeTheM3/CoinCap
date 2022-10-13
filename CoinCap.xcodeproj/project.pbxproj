@@ -17,6 +17,7 @@
 		5E34A41328F80BA100637BE7 /* CryptoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41228F80BA100637BE7 /* CryptoProtocol.swift */; };
 		5E34A41728F80D4700637BE7 /* CryptoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41628F80D4700637BE7 /* CryptoData.swift */; };
 		5E34A41928F81AA800637BE7 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41828F81AA800637BE7 /* LocalStorage.swift */; };
+		5E34A41D28F843AD00637BE7 /* CoinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5E34A41228F80BA100637BE7 /* CryptoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoProtocol.swift; sourceTree = "<group>"; };
 		5E34A41628F80D4700637BE7 /* CryptoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoData.swift; sourceTree = "<group>"; };
 		5E34A41828F81AA800637BE7 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				5E34A3F828F80A2D00637BE7 /* CoinsViewController.swift */,
+				5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				5E34A41928F81AA800637BE7 /* LocalStorage.swift in Sources */,
 				5E34A41028F80B2C00637BE7 /* NetworkManager.swift in Sources */,
 				5E34A40E28F80AA100637BE7 /* Model.swift in Sources */,
+				5E34A41D28F843AD00637BE7 /* CoinCustomCell.swift in Sources */,
 				5E34A3F928F80A2D00637BE7 /* CoinsViewController.swift in Sources */,
 				5E34A3F528F80A2D00637BE7 /* AppDelegate.swift in Sources */,
 				5E34A40C28F80A9700637BE7 /* Presenter.swift in Sources */,

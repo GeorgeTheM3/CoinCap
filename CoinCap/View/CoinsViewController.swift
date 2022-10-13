@@ -22,7 +22,7 @@ class CoinsViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CoinCustomCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.frame = CGRect(x: .zero, y: .zero, width: view.frame.width, height: view.frame.height)
         return collectionView
     }()
@@ -50,9 +50,12 @@ extension CoinsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CoinCustomCell {
+            cell.coinImageView.image = criptoCoins[indexPath.item].image
+            cell.coinTitleLabel.text = criptoCoins[indexPath.item].data.name
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
