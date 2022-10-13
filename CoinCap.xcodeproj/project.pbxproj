@@ -15,6 +15,7 @@
 		5E34A40E28F80AA100637BE7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A40D28F80AA100637BE7 /* Model.swift */; };
 		5E34A41028F80B2C00637BE7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A40F28F80B2C00637BE7 /* NetworkManager.swift */; };
 		5E34A41328F80BA100637BE7 /* DelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41228F80BA100637BE7 /* DelegateProtocol.swift */; };
+		5E34A41728F80D4700637BE7 /* CryptoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41628F80D4700637BE7 /* CryptoData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5E34A40D28F80AA100637BE7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5E34A40F28F80B2C00637BE7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5E34A41228F80BA100637BE7 /* DelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProtocol.swift; sourceTree = "<group>"; };
+		5E34A41628F80D4700637BE7 /* CryptoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				5E34A40D28F80AA100637BE7 /* Model.swift */,
-				5E34A40F28F80B2C00637BE7 /* NetworkManager.swift */,
+				5E34A41528F80CEE00637BE7 /* Network */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,6 +105,23 @@
 				5E34A41228F80BA100637BE7 /* DelegateProtocol.swift */,
 			);
 			path = "Helper ";
+			sourceTree = "<group>";
+		};
+		5E34A41428F80CD900637BE7 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E34A41628F80D4700637BE7 /* CryptoData.swift */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		5E34A41528F80CEE00637BE7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5E34A40F28F80B2C00637BE7 /* NetworkManager.swift */,
+				5E34A41428F80CD900637BE7 /* JSONModel */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +198,7 @@
 				5E34A3F928F80A2D00637BE7 /* ViewController.swift in Sources */,
 				5E34A3F528F80A2D00637BE7 /* AppDelegate.swift in Sources */,
 				5E34A40C28F80A9700637BE7 /* Presenter.swift in Sources */,
+				5E34A41728F80D4700637BE7 /* CryptoData.swift in Sources */,
 				5E34A3F728F80A2D00637BE7 /* SceneDelegate.swift in Sources */,
 				5E34A41328F80BA100637BE7 /* DelegateProtocol.swift in Sources */,
 			);
