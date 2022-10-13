@@ -13,6 +13,9 @@ class CoinsViewController: UIViewController {
     let spacesBetweenLines = CGFloat(10)
     let numberOfItems = CGFloat(1)
     
+    let presenter = Presenter()
+    var coinsData: [Coin] = []
+    
     private lazy var coinsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -28,10 +31,12 @@ class CoinsViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setViewController()
+        presenter.getData()
     }
     
     private func setViewController() {
         view.backgroundColor = .white
+        presenter.setViewToDelegate(view: self)
     }
     
     private func addSubviews() {
@@ -41,7 +46,7 @@ class CoinsViewController: UIViewController {
 
 extension CoinsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        coinsData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,7 +68,15 @@ extension CoinsViewController: UICollectionViewDataSource {
 
 extension CoinsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item selected \(indexPath.row)")
+        print("\(coinsData[indexPath.row].name)")
     }
 }
 
+extension CoinsViewController: CryptoProtocol {
+    func getCryptoData(data: CryptoData) {
+        coinsData = data.data
+        DispatchQueue.main.async {
+            self.coinsCollectionView.reloadData()
+        }
+    }
+}

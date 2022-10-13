@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DelegateProtocol {
-    
+protocol CryptoProtocol: AnyObject {
+    func getCryptoData(data: CryptoData)
 }
