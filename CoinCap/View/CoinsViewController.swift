@@ -12,9 +12,11 @@ class CoinsViewController: UIViewController {
     let spaceSize = CGFloat(20)
     let spacesBetweenLines = CGFloat(10)
     let numberOfItems = CGFloat(1)
+
+    private let presenter = Presenter()
+    private lazy var criptoCoins: [CryptoCoin] = []
     
-    let presenter = Presenter()
-    var criptoCoins: [CryptoCoin] = []
+    private var delegateToCustomCell: DelegateToViewProtocol?
     
     private lazy var coinsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,7 +37,7 @@ class CoinsViewController: UIViewController {
     }
     
     private func setViewController() {
-        view.backgroundColor = .white
+        coinsCollectionView.backgroundColor = .systemGray5
         presenter.setViewToDelegate(view: self)
     }
     
@@ -51,8 +53,11 @@ extension CoinsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CoinCustomCell {
-            cell.coinImageView.image = criptoCoins[indexPath.item].image
-            cell.coinTitleLabel.text = criptoCoins[indexPath.item].data.name
+            cell.backgroundColor = .white
+            let image = criptoCoins[indexPath.item].image
+            let title = criptoCoins[indexPath.item].data.name
+            delegateToCustomCell = cell
+            delegateToCustomCell?.delgateToView(info: (image,title))
             return cell
         }
         return UICollectionViewCell()
@@ -61,7 +66,7 @@ extension CoinsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let spaces = (numberOfItems + 1) * spaceSize
         let widthCell = collectionView.frame.width - CGFloat(spaces)
-        return CGSize(width: widthCell, height: (widthCell/5))
+        return CGSize(width: widthCell, height: (widthCell/4.5))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

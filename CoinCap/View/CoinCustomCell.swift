@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class CoinCustomCell: UICollectionViewCell {
-    private(set) lazy var coinImageView: UIImageView = {
+    private lazy var coinImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private(set) lazy var coinTitleLabel: UILabel = {
+    private lazy var coinTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +44,16 @@ class CoinCustomCell: UICollectionViewCell {
             coinImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             
             coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 10),
-            coinImageView.centerYAnchor.constraint(equalTo: coinImageView.centerYAnchor)
+            coinTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
+    }
+}
+
+extension CoinCustomCell: DelegateToViewProtocol {
+    func delgateToView<T>(info: T?) {
+        if let data = info as? (UIImage, String) {
+            coinImageView.image = data.0
+            coinTitleLabel.text = data.1
+        }
     }
 }
