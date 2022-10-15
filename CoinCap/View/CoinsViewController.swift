@@ -9,7 +9,7 @@ import UIKit
 
 class CoinsViewController: UIViewController {
     // sizeForItem
-    let spaceSize = CGFloat(20)
+    let spaceSize = CGFloat(15)
     let spacesBetweenLines = CGFloat(10)
     let numberOfItems = CGFloat(1)
 
@@ -37,6 +37,7 @@ class CoinsViewController: UIViewController {
     }
     
     private func setViewController() {
+        navigationItem.title = "CoinCap"
         coinsCollectionView.backgroundColor = .systemGray5
         presenter.setViewToDelegate(view: self)
     }
@@ -62,7 +63,7 @@ extension CoinsViewController: UICollectionViewDataSource {
             let rank = criptoCoins[indexPath.item].data.rank
             let symbol = criptoCoins[indexPath.item].data.symbol
             let price = criptoCoins[indexPath.item].data.priceUsd
-            let change24 = criptoCoins[indexPath.item].data.changePercent24Hr.dropLast(14)
+            let change24 = criptoCoins[indexPath.item].data.changePercent24Hr.dropLast(13)
             let percent = String(change24)
             let dictionaryWithInfo: [Constants.CellInfoKeys:Any] = [.title: title, .image: image, .rank: rank, .symbol: symbol, .price: price, .changeInPercent24: percent]
             delegateToCustomCell = cell

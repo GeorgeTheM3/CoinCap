@@ -11,6 +11,7 @@ import UIKit
 class CoinCustomCell: UICollectionViewCell {
     private lazy var coinRankLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .systemGray3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,11 +24,19 @@ class CoinCustomCell: UICollectionViewCell {
     
     private lazy var coinTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "AlNile-Bold", size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var coinShortTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray3
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,22 +65,28 @@ class CoinCustomCell: UICollectionViewCell {
         addSubview(coinTitleLabel)
         addSubview(coinRankLabel)
         addSubview(coinShortTitleLabel)
+//        addSubview(priceLabel)
         addSubview(changePriceLabel)
     }
     
     private func setConstraintsSubviews() {
         NSLayoutConstraint.activate([
             coinRankLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            coinRankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            coinRankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             
             coinImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            coinImageView.leadingAnchor.constraint(equalTo: coinRankLabel.trailingAnchor, constant: 20),
+            coinImageView.leadingAnchor.constraint(equalTo: coinRankLabel.trailingAnchor, constant: 15),
+            coinImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -25),
+            coinImageView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -25),
             
-            coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 20),
+            coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
             coinTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -15),
             
-            coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 20),
+            coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
             coinShortTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 15),
+            
+//            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+//            priceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20),
             
             changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             changePriceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
@@ -86,7 +101,16 @@ extension CoinCustomCell: DelegateToViewProtocol {
             coinImageView.image = data[.image] as? UIImage
             coinTitleLabel.text = data[.title] as? String
             coinShortTitleLabel.text = data[.symbol] as? String
-            changePriceLabel.text = data[.changeInPercent24] as? String
+//            priceLabel.text = data[.price] as? String
+            if let price =  data[.changeInPercent24] as? String {
+                if price.contains("-") {
+                    changePriceLabel.text = "\(price)%"
+                    changePriceLabel.textColor = .red
+                } else {
+                    changePriceLabel.text = "+\(price)%"
+                    changePriceLabel.textColor = .systemGreen
+                }
+            }
         }
     }
 }

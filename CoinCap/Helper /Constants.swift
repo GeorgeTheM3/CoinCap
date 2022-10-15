@@ -10,7 +10,7 @@ import Foundation
 class Constants {
     static let shared = Constants()
     
-    //
+    // Ключи для доступа к значенияв ячейки
     enum CellInfoKeys {
         case image
         case title
@@ -19,4 +19,5 @@ class Constants {
         case rank
         case changeInPercent24
     }
+    
 }
