@@ -15,12 +15,10 @@ class Presenter {
     }
     
     public func getData() {
-        NetworkManager.shared.fetchData(url: "https://api.coincap.io/v2/assets", model: CryptoData.self) { result in
+        NetworkManager.shared.fetchData(url: Constants.shared.jsonURL, model: CryptoData.self) { result in
             for item in result.data {
-                let url1 = "https://assets.coincap.io/assets/icons/"
-                let url2 = "\(item.symbol.lowercased())"
-                let url3 = "@2x.png"
-                let resultURL = url1 + url2 + url3
+                let key = "\(item.symbol.lowercased())"
+                let resultURL = Constants.shared.getImageURL(key: key)
                 NetworkManager.shared.loadImage(url: resultURL) { image in
                     self.delegate?.getCryptoCoin(data: CryptoCoin(data: item, image: image))
                 }

@@ -9,15 +9,13 @@ import Foundation
 
 class Constants {
     static let shared = Constants()
+
+    public let jsonURL = "https://api.coincap.io/v2/assets"
     
-    // Ключи для доступа к значенияв ячейки
-    enum CellInfoKeys {
-        case image
-        case title
-        case symbol
-        case price
-        case rank
-        case changeInPercent24
+    private let baseImageURL = "https://assets.coincap.io/assets/icons/"
+    private let endImageURL = "@2x.png"
+    
+    func getImageURL(key: String) -> String {
+        return baseImageURL + key + endImageURL
     }
-    
 }
