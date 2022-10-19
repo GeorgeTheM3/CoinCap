@@ -102,7 +102,7 @@ extension CoinCustomCell: DelegateToViewProtocol {
             coinTitleLabel.text = data[.title] as? String
             coinShortTitleLabel.text = data[.symbol] as? String
 //            priceLabel.text = data[.price] as? String
-            if let price =  data[.changeInPercent24] as? String {
+            if let price = data[.changeInPercent24] as? String {
                 if price.contains("-") {
                     changePriceLabel.text = "\(price)%"
                     changePriceLabel.textColor = .red

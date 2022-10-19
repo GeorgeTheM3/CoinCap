@@ -19,6 +19,8 @@
 		5E34A41928F81AA800637BE7 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41828F81AA800637BE7 /* LocalStorage.swift */; };
 		5E34A41D28F843AD00637BE7 /* CoinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */; };
 		5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */; };
+		5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CA3290028CF002A0030 /* TabBarController.swift */; };
+		5E7D1CA629002BDD002A0030 /* ConverterCoinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CA529002BDD002A0030 /* ConverterCoinsViewController.swift */; };
 		5ED9A90F28FA86BF0015EDA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED9A90E28FA86BF0015EDA6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		5E34A41828F81AA800637BE7 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCustomCell.swift; sourceTree = "<group>"; };
 		5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateToViewProtocol.swift; sourceTree = "<group>"; };
+		5E7D1CA3290028CF002A0030 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5E7D1CA529002BDD002A0030 /* ConverterCoinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCoinsViewController.swift; sourceTree = "<group>"; };
 		5ED9A90E28FA86BF0015EDA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,8 @@
 			children = (
 				5E34A3F828F80A2D00637BE7 /* CoinsViewController.swift */,
 				5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */,
+				5E7D1CA529002BDD002A0030 /* ConverterCoinsViewController.swift */,
+				5E7D1CA3290028CF002A0030 /* TabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,8 +228,10 @@
 				5E34A40C28F80A9700637BE7 /* Presenter.swift in Sources */,
 				5E34A41728F80D4700637BE7 /* CryptoData.swift in Sources */,
 				5E34A3F728F80A2D00637BE7 /* SceneDelegate.swift in Sources */,
+				5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */,
 				5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */,
 				5E34A41328F80BA100637BE7 /* CryptoProtocol.swift in Sources */,
+				5E7D1CA629002BDD002A0030 /* ConverterCoinsViewController.swift in Sources */,
 				5ED9A90F28FA86BF0015EDA6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
