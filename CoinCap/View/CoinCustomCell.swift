@@ -47,11 +47,14 @@ class CoinCustomCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
         setConstraintsSubviews()
+        self.backgroundColor = .white
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10
     }
     
     required init?(coder: NSCoder) {
@@ -65,7 +68,7 @@ class CoinCustomCell: UICollectionViewCell {
         addSubview(coinTitleLabel)
         addSubview(coinRankLabel)
         addSubview(coinShortTitleLabel)
-//        addSubview(priceLabel)
+        //        addSubview(priceLabel)
         addSubview(changePriceLabel)
     }
     
@@ -85,8 +88,8 @@ class CoinCustomCell: UICollectionViewCell {
             coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
             coinShortTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 15),
             
-//            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-//            priceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20),
+            //            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            //            priceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20),
             
             changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             changePriceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
@@ -96,20 +99,18 @@ class CoinCustomCell: UICollectionViewCell {
 
 extension CoinCustomCell: DelegateToViewProtocol {
     func delgateToView<T>(info: T?) {
-        if let data = info as? [Constants.CellInfoKeys: Any] {
-            coinRankLabel.text = data[.rank] as? String
-            coinImageView.image = data[.image] as? UIImage
-            coinTitleLabel.text = data[.title] as? String
-            coinShortTitleLabel.text = data[.symbol] as? String
-//            priceLabel.text = data[.price] as? String
-            if let price = data[.changeInPercent24] as? String {
-                if price.contains("-") {
-                    changePriceLabel.text = "\(price)%"
-                    changePriceLabel.textColor = .red
-                } else {
-                    changePriceLabel.text = "+\(price)%"
-                    changePriceLabel.textColor = .systemGreen
-                }
+        if let data = info as? (UIImage, Coin) {
+            coinImageView.image = data.0
+            coinRankLabel.text = data.1.rank
+            coinTitleLabel.text = data.1.name
+            coinShortTitleLabel.text = data.1.symbol
+            let change = data.1.changePercent24Hr.dropLast(13)
+            if change.contains("-") {
+                changePriceLabel.text = "\(change)%"
+                changePriceLabel.textColor = .red
+            } else {
+                changePriceLabel.text = "+\(change)%"
+                changePriceLabel.textColor = .systemGreen
             }
         }
     }

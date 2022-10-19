@@ -54,21 +54,10 @@ extension CoinsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CoinCustomCell {
-            cell.backgroundColor = .white
-            cell.clipsToBounds = true
-            cell.layer.cornerRadius = 10
-            
             let image = criptoCoins[indexPath.item].image
-            let title = criptoCoins[indexPath.item].data.name
-            let rank = criptoCoins[indexPath.item].data.rank
-            let symbol = criptoCoins[indexPath.item].data.symbol
-            let price = criptoCoins[indexPath.item].data.priceUsd
-            let change24 = criptoCoins[indexPath.item].data.changePercent24Hr.dropLast(13)
-            let percent = String(change24)
-            let dictionaryWithInfo: [Constants.CellInfoKeys:Any] = [.title: title, .image: image, .rank: rank, .symbol: symbol, .price: price, .changeInPercent24: percent]
+            let data = criptoCoins[indexPath.item].data
             delegateToCustomCell = cell
-            delegateToCustomCell?.delgateToView(info: dictionaryWithInfo)
-            
+            delegateToCustomCell?.delgateToView(info: (image, data))
             return cell
         }
         return UICollectionViewCell()
