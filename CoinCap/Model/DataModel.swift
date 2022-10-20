@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class DataModel {
-    func getPrice(price: String) -> String {
+    static func getPrice(price: String) -> String {
         if let number = Double(price) {
-            let numb = round(number * 10)/10
+            let numb = round(number * 1000)/1000
             return String(numb)
         }
         return price

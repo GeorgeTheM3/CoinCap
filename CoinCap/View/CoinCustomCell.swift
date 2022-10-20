@@ -68,7 +68,7 @@ class CoinCustomCell: UICollectionViewCell {
         addSubview(coinTitleLabel)
         addSubview(coinRankLabel)
         addSubview(coinShortTitleLabel)
-        //        addSubview(priceLabel)
+        addSubview(priceLabel)
         addSubview(changePriceLabel)
     }
     
@@ -88,11 +88,11 @@ class CoinCustomCell: UICollectionViewCell {
             coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
             coinShortTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 15),
             
-            //            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            //            priceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -20),
+            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            priceLabel.topAnchor.constraint(equalTo: coinTitleLabel.topAnchor),
             
             changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            changePriceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            changePriceLabel.bottomAnchor.constraint(equalTo: coinShortTitleLabel.bottomAnchor)
         ])
     }
 }
@@ -104,6 +104,7 @@ extension CoinCustomCell: DelegateToViewProtocol {
             coinRankLabel.text = data.1.rank
             coinTitleLabel.text = data.1.name
             coinShortTitleLabel.text = data.1.symbol
+            priceLabel.text = "$\(DataModel.getPrice(price: data.1.priceUsd))"
             let change = data.1.changePercent24Hr.dropLast(13)
             if change.contains("-") {
                 changePriceLabel.text = "\(change)%"
