@@ -56,7 +56,6 @@ extension CoinsViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CoinCustomCell {
             let image = criptoCoins[indexPath.item].image
             let data = criptoCoins[indexPath.item].data
-            print(data.priceUsd)
             delegateToCustomCell = cell
             delegateToCustomCell?.delgateToView(info: (image, data))
             return cell
