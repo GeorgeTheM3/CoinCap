@@ -8,5 +8,7 @@
 import Foundation
 
 class LocalStorage {
+    static let shared = LocalStorage()
     
+    var coinsStorage: [CryptoCoin] = []
 }

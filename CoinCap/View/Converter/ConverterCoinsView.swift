@@ -85,6 +85,7 @@ class ConverterCoinsView: UIView {
         super.init(frame: frame)
         createSubviews()
         setConstraintsSubviews()
+        createSubviews()
     }
     
     required init?(coder: NSCoder) {
