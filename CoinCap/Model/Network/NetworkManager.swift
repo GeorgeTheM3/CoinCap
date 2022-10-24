@@ -37,3 +37,10 @@ class NetworkManager {
         }
     }
 }
+
+extension NetworkManager: InputInPresenter {
+    func getData<T>(data: T?) -> T? {
+        print("delegate")
+        return nil
+    }
+}

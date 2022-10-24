@@ -9,6 +9,10 @@ import UIKit
 
 class ConverterCoinsViewController: UIViewController {
     
+    private let presenter = Presenter()
+    private var firstCoin: CryptoCoin?
+    private var secondCoin: CryptoCoin?
+    
     override func loadView() {
         super.loadView()
         self.view = getConverterView()

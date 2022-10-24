@@ -11,21 +11,24 @@ import UIKit
 class ConverterCoinsView: UIView {
     private lazy var firstCoinImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.image = UIImage(named: "btc")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var firstCoinShortTitle: UILabel = {
         let label = UILabel()
-        label.text = "FCOIN"
+        label.text = "BTC"
+        label.font = UIFont(name: "AlNile-Bold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var iHaveLabel: UILabel = {
         let label = UILabel()
-        label.text = "У меня есть"
+        label.text = "У МЕНЯ ЕСТЬ"
+        label.font = UIFont.preferredFont(forTextStyle: .footnote).withSize(14)
+        label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,50 +37,77 @@ class ConverterCoinsView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.placeholder = "10 BTC"
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 15
+        textField.borderStyle = .roundedRect
+        textField.clipsToBounds = true
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.addTarget(self, action: #selector(changeFirstValue), for: .editingChanged)
         return textField
     }()
     
+    @objc private func changeFirstValue() {
+        if let text = firstCoinNumberTextField.text {
+            secondCoinNumberTextField.text =  text
+        }
+    }
+
     private lazy var changeFirstCoinButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .black
         return button
     }()
     
     private lazy var secondCoinImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.image = UIImage(named: "eth")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var secondCoinShortTitle: UILabel = {
         let label = UILabel()
-        label.text = "SCOIN"
+        label.text = "ETH"
+        label.font = UIFont(name: "AlNile-Bold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var iWillHaveLabel: UILabel = {
         let label = UILabel()
-        label.text = "Я получу"
+        label.text = "Я ПОЛУЧУ"
+        label.font = UIFont.preferredFont(forTextStyle: .footnote).withSize(14)
+        label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var secondCoinNumberTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "200 ETF"
+        textField.placeholder = "200 ETH"
         textField.backgroundColor = .white
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 15
+        textField.borderStyle = .roundedRect
+        textField.clipsToBounds = true
+        textField.addTarget(self, action: #selector(changeSecondValue), for: .editingChanged)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
+    @objc private func changeSecondValue() {
+        if let text = secondCoinNumberTextField.text {
+            firstCoinNumberTextField.text =  text
+        }
+    }
+    
     private lazy var changeSecondCoinButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .black
         return button
     }()
     

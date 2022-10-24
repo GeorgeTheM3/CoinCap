@@ -13,12 +13,16 @@ class Presenter {
     public func setViewToDelegate(view: CryptoProtocol?) {
         self.delegate = view
     }
+        
+    public func getData2() {
+    }
     
     public func getData() {
         NetworkManager.shared.fetchData(url: Constants.shared.jsonURL, model: CryptoData.self) { result in
             for item in result.data {
                 let key = "\(item.symbol.lowercased())"
                 let resultURL = Constants.shared.getImageURL(key: key)
+                print(resultURL)
                 NetworkManager.shared.loadImage(url: resultURL) { image in
                     let coin = CryptoCoin(data: item, image: image)
                     LocalStorage.shared.coinsStorage.append(coin)
@@ -26,5 +30,11 @@ class Presenter {
                 }
             }
         }
+    }
+}
+
+extension Presenter: OutputPresenterProtocol {
+    public func getInfo<T>(info: T?) -> T? {
+        return nil
     }
 }

@@ -10,4 +10,5 @@ import UIKit
 
 protocol CryptoProtocol: AnyObject {
     func getCryptoCoin(data: CryptoCoin)
+//    func getCryptoCoinsArray(data: [CryptoCoin])
 }
