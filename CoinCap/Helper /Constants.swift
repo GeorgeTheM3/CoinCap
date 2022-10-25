@@ -18,4 +18,12 @@ class Constants {
     func getImageURL(key: String) -> String {
         return baseImageURL + key + endImageURL
     }
+    
+    
+    // canstraints converter view
+    static let paddingTop = CGFloat(50)
+    static let paddingsInLine = CGFloat(10)
+    static let paddingBetweenLines = CGFloat(15)
+    static let heightMax = CGFloat(50)
+    static let heightMin = CGFloat(20)
 }
