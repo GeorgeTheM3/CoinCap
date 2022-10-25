@@ -13,21 +13,26 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewControllers = configureTabBar()
+        setingTabBar()
     }
     
     private func configureTabBar() -> [UIViewController] {
         var viewControllers: [UIViewController] = []
         
         let coinsViewController = CoinsViewController()
-        coinsViewController.tabBarItem = UITabBarItem(title: "Coins", image: UIImage(systemName: "circle"), selectedImage: UIImage(systemName: "plus"))
+        coinsViewController.tabBarItem = UITabBarItem(title: "Coins", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
         let coinsNavigationController = UINavigationController(rootViewController: coinsViewController)
         viewControllers.append(coinsNavigationController)
         
         let converterCoinsViewController = ConverterCoinsViewController()
-        converterCoinsViewController.tabBarItem = UITabBarItem(title: "Coins", image: UIImage(systemName: "circle"), selectedImage: UIImage(systemName: "plus"))
+        converterCoinsViewController.tabBarItem = UITabBarItem(title: "Coins", image: UIImage(systemName: "arrow.left.arrow.right.circle"), selectedImage: UIImage(systemName: "arrow.left.arrow.right.circle.fill"))
         let converterCoinsNavigationController = UINavigationController(rootViewController: converterCoinsViewController)
         viewControllers.append(converterCoinsNavigationController)
         
         return viewControllers
+    }
+    
+    private func setingTabBar() {
+        self.tabBar.tintColor = .orange
     }
 }
