@@ -38,6 +38,7 @@ class CoinCustomCell: UICollectionViewCell {
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "DIN Condensed", size: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -89,6 +90,7 @@ class CoinCustomCell: UICollectionViewCell {
             coinShortTitleLabel.bottomAnchor.constraint(equalTo: coinImageView.bottomAnchor),
             
             priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.cellpaddingSide),
+            priceLabel.heightAnchor.constraint(equalToConstant: 30),
             priceLabel.topAnchor.constraint(equalTo: coinTitleLabel.topAnchor),
             
             changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.cellpaddingSide),
