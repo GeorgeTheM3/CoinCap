@@ -75,23 +75,23 @@ class CoinCustomCell: UICollectionViewCell {
     private func setConstraintsSubviews() {
         NSLayoutConstraint.activate([
             coinRankLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            coinRankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            coinRankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.cellpaddingSide),
             
             coinImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            coinImageView.leadingAnchor.constraint(equalTo: coinRankLabel.trailingAnchor, constant: 15),
-            coinImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -25),
-            coinImageView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -25),
+            coinImageView.leadingAnchor.constraint(equalTo: coinRankLabel.trailingAnchor, constant: Constants.cellpaddingSide),
+            coinImageView.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -Constants.cellHeigthImage),
+            coinImageView.widthAnchor.constraint(equalTo: self.heightAnchor, constant: -Constants.cellHeigthImage),
             
-            coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
-            coinTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -15),
+            coinTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.cellpaddingSide),
+            coinTitleLabel.topAnchor.constraint(equalTo: coinImageView.topAnchor),
             
-            coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: 12),
-            coinShortTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 15),
+            coinShortTitleLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.cellpaddingSide),
+            coinShortTitleLabel.bottomAnchor.constraint(equalTo: coinImageView.bottomAnchor),
             
-            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.cellpaddingSide),
             priceLabel.topAnchor.constraint(equalTo: coinTitleLabel.topAnchor),
             
-            changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            changePriceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.cellpaddingSide),
             changePriceLabel.bottomAnchor.constraint(equalTo: coinShortTitleLabel.bottomAnchor)
         ])
     }
