@@ -13,9 +13,6 @@ class Presenter {
     public func setViewToDelegate(view: CryptoProtocol?) {
         self.delegate = view
     }
-        
-    public func getData2() {
-    }
     
     public func getData() {
         NetworkManager.shared.fetchData(url: Constants.shared.jsonURL, model: CryptoData.self) { result in
