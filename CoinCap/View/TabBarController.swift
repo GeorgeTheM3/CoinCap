@@ -29,6 +29,11 @@ class TabBarController: UITabBarController {
         let converterCoinsNavigationController = UINavigationController(rootViewController: converterCoinsViewController)
         viewControllers.append(converterCoinsNavigationController)
         
+        let converterCoinsViewController2 = CoinDetailViewController()
+        converterCoinsViewController2.tabBarItem = UITabBarItem(title: "Coins", image: UIImage(systemName: "arrow.left.arrow.right.circle"), selectedImage: UIImage(systemName: "arrow.left.arrow.right.circle.fill"))
+        let converterCoinsNavigationController2 = UINavigationController(rootViewController: converterCoinsViewController2)
+        viewControllers.append(converterCoinsNavigationController2)
+        
         return viewControllers
     }
     
