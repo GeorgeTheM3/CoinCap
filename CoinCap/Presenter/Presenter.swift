@@ -19,7 +19,6 @@ class Presenter {
             for item in result.data {
                 let key = "\(item.symbol.lowercased())"
                 let resultURL = Constants.shared.getImageURL(key: key)
-                print(resultURL)
                 NetworkManager.shared.loadImage(url: resultURL) { image in
                     let coin = CryptoCoin(data: item, image: image)
                     LocalStorage.shared.coinsStorage.append(coin)

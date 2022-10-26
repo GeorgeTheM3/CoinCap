@@ -177,8 +177,8 @@
 		5E7D1CA92901C505002A0030 /* CollectionCoins */ = {
 			isa = PBXGroup;
 			children = (
-				5E34A3F828F80A2D00637BE7 /* CoinsViewController.swift */,
 				5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */,
+				5E34A3F828F80A2D00637BE7 /* CoinsViewController.swift */,
 			);
 			path = CollectionCoins;
 			sourceTree = "<group>";

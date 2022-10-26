@@ -15,6 +15,7 @@ class CoinDetailViewController: UIViewController {
     private lazy var coinDetailTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         return tableView
@@ -38,7 +39,7 @@ class CoinDetailViewController: UIViewController {
 
 extension CoinDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,37 +47,34 @@ extension CoinDetailViewController: UITableViewDataSource {
         let coin = LocalStorage.shared.coinsStorage[0]
         switch indexPath.row {
         case 0:
-            let text = coin.data.rank
-            cell.textLabel?.text = "Rank: \(text)"
+            cell.imageView?.image = coin.image
+            cell.textLabel?.text = coin.data.name
         case 1:
             let text = coin.data.symbol
             cell.textLabel?.text = "Short name: \(text)"
         case 2:
-            let text = coin.data.name
-            cell.textLabel?.text = "Name: \(text)"
-        case 3:
             let text = coin.data.priceUsd
             cell.textLabel?.text = "Price: \(text)"
-        case 4:
+        case 3:
             let text = coin.data.changePercent24Hr
             cell.textLabel?.text = "Change for 24h: \(text)"
-        case 5:
+        case 4:
             if let text = coin.data.vwap24Hr {
                 cell.textLabel?.text = "vwap24Hr: \(text)"
             }
-        case 6:
+        case 5:
             if let text = coin.data.supply {
                 cell.textLabel?.text = "supply: \(text)"
             }
-        case 7:
+        case 6:
             if let text = coin.data.maxSupply {
                 cell.textLabel?.text = "maxSupply: \(text)"
             }
-        case 8:
+        case 7:
             if let text = coin.data.marketCapUsd {
                 cell.textLabel?.text = "marketCapUsd: \(text)"
             }
-        case 9:
+        case 8:
             if let text = coin.data.volumeUsd24Hr {
                 cell.textLabel?.text = "volumeUsd24Hr: \(text)"
             }
