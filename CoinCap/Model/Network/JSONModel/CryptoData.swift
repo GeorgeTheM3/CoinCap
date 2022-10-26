@@ -18,4 +18,9 @@ struct Coin: Decodable {
     let name: String
     let priceUsd: String
     let changePercent24Hr: String
+    let vwap24Hr: String
+    let supply: String
+    let maxSupply: String
+    let marketCapUsd: String
+    let volumeUsd24Hr: String
 }
