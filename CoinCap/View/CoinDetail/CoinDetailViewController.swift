@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class CoinDetailViewController: UIViewController {
-    private let presenter = Presenter()
-    private lazy var criptoCoins: [CryptoCoin] = []
+//    private let presenter = Presenter()
+//    private lazy var criptoCoins: [CryptoCoin] = []
     
     private lazy var coinDetailTableView: UITableView = {
         let tableView = UITableView()
@@ -29,7 +29,7 @@ class CoinDetailViewController: UIViewController {
     private func setViewController() {
         navigationItem.title = "CoinCap"
         coinDetailTableView.backgroundColor = .systemGray5
-        presenter.setViewToDelegate(view: self)
+//        presenter.setViewToDelegate(view: self)
     }
     
     private func addSubviews() {
@@ -87,6 +87,6 @@ extension CoinDetailViewController: UITableViewDataSource {
 
 extension CoinDetailViewController: CryptoProtocol {
     func getCryptoCoin(data: CryptoCoin) {
-        criptoCoins.append(data)
+//        criptoCoins.append(data)
     }
 }
