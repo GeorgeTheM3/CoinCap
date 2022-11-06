@@ -255,3 +255,13 @@ extension ConverterCoinsView: OutputControlletProtocol {
         return nil
     }
 }
+
+// extansion for transfer pressed button action to ConverterCoinsViewController
+extension ConverterCoinsView: InputControlletProtocol {
+    func inputInfo<T>(info: T?) -> T? {
+        if let action = info as? Selector {
+            swapCoinButton.addTarget(Any.self, action: action, for: .touchUpInside)
+        }
+        return nil
+    }
+}
