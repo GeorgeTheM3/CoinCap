@@ -198,3 +198,17 @@ class ConverterCoinsView: UIView {
         ])
     }
 }
+
+// extension for get two coins from ConverterCoinsViewController
+extension ConverterCoinsView: OutputControlletProtocol {
+    func outputInfo<T>(info: T?) -> T? {
+        if let data = info as? (CryptoCoin, CryptoCoin) {
+            let firstCoin = data.0
+            firstCoinImageView.image = firstCoin.image
+            
+            let secondCoin = data.1
+            secondCoinImageView.image = secondCoin.image
+        }
+        return nil
+    }
+}

@@ -76,7 +76,8 @@ extension CoinsViewController: UICollectionViewDataSource {
 
 extension CoinsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = CoinDetailViewController()
+        let selectedCoin = criptoCoins[indexPath.row]
+        let controller = CoinDetailViewController(curentCoin: selectedCoin)
         present(controller, animated: true)
     }
 }

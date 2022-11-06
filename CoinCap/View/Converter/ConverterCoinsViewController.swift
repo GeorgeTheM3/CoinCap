@@ -10,6 +10,7 @@ import UIKit
 class ConverterCoinsViewController: UIViewController {
     
     private let presenter = Presenter()
+    private var outputInfoToView: OutputControlletProtocol?
     private var firstCoin: CryptoCoin?
     private var secondCoin: CryptoCoin?
     
@@ -21,10 +22,20 @@ class ConverterCoinsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConverterViewController()
+        getTwoStandartCoins()
+        // trasfer two coins to view
+        outputInfoToView?.outputInfo(info: (firstCoin, secondCoin))
+    }
+    
+    // get two coins for standart view
+    private func getTwoStandartCoins() {
+        firstCoin = LocalStorage.shared.coinsStorage[0]
+        secondCoin = LocalStorage.shared.coinsStorage[1]
     }
     
     private func getConverterView() -> UIView {
         let view = ConverterCoinsView()
+        outputInfoToView = view
         return view
     }
     

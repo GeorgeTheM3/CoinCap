@@ -9,27 +9,39 @@ import Foundation
 import UIKit
 
 class CoinDetailViewController: UIViewController {
-//    private let presenter = Presenter()
-//    private lazy var criptoCoins: [CryptoCoin] = []
+    private let presenter = Presenter()
+    
+    private var curentCoin: CryptoCoin
     
     private lazy var coinDetailTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        tableView.frame = CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height)
         return tableView
     }()
+    
+    init(curentCoin: CryptoCoin) {
+        self.curentCoin = curentCoin
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
+        setViewController()
     }
     
     private func setViewController() {
         navigationItem.title = "CoinCap"
         coinDetailTableView.backgroundColor = .systemGray5
-//        presenter.setViewToDelegate(view: self)
+        presenter.setViewToDelegate(view: self)
+        view.backgroundColor = .white
     }
     
     private func addSubviews() {
@@ -44,7 +56,7 @@ extension CoinDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let coin = LocalStorage.shared.coinsStorage[0]
+        let coin = curentCoin
         switch indexPath.row {
         case 0:
             cell.imageView?.image = coin.image
@@ -69,6 +81,8 @@ extension CoinDetailViewController: UITableViewDataSource {
         case 6:
             if let text = coin.data.maxSupply {
                 cell.textLabel?.text = "maxSupply: \(text)"
+            } else {
+                cell.textLabel?.text = "maxSupply: - "
             }
         case 7:
             if let text = coin.data.marketCapUsd {
@@ -87,6 +101,6 @@ extension CoinDetailViewController: UITableViewDataSource {
 
 extension CoinDetailViewController: CryptoProtocol {
     func getCryptoCoin(data: CryptoCoin) {
-//        criptoCoins.append(data)
+        curentCoin = data
     }
 }

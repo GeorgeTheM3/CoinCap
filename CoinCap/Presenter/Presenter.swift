@@ -27,6 +27,11 @@ class Presenter {
             }
         }
     }
+    
+    public func getDetail(index: Int) {
+        let coin = LocalStorage.shared.coinsStorage[index]
+        delegate?.getCryptoCoin(data: coin)
+    }
 }
 
 extension Presenter: OutputPresenterProtocol {
