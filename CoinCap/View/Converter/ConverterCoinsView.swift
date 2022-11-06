@@ -185,6 +185,7 @@ class ConverterCoinsView: UIView {
             iHaveLabel.bottomAnchor.constraint(equalTo: firstCoinImageView.topAnchor, constant: -Constants.paddingBetweenLines),
             
             firstCoinShortTitle.topAnchor.constraint(equalTo: firstCoinImageView.bottomAnchor, constant: Constants.paddingBetweenLines),
+            firstCoinShortTitle.heightAnchor.constraint(equalToConstant: Constants.heightMin),
             firstCoinShortTitle.centerXAnchor.constraint(equalTo: firstCoinImageView.centerXAnchor),
             
             firstCoinNumberTextField.leadingAnchor.constraint(equalTo: firstCoinImageView.trailingAnchor, constant: Constants.paddingsInLine),
@@ -194,8 +195,8 @@ class ConverterCoinsView: UIView {
             
             changeFirstCoinButton.centerYAnchor.constraint(equalTo: firstCoinNumberTextField.centerYAnchor),
             changeFirstCoinButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -Constants.paddingsInLine),
-            changeFirstCoinButton.widthAnchor.constraint(equalToConstant: Constants.heightMin),
-            changeFirstCoinButton.heightAnchor.constraint(equalToConstant: Constants.heightMin),
+            changeFirstCoinButton.widthAnchor.constraint(equalToConstant: Constants.height),
+            changeFirstCoinButton.heightAnchor.constraint(equalToConstant: Constants.height),
             
             secondCoinImageView.topAnchor.constraint(equalTo: firstCoinShortTitle.bottomAnchor, constant: Constants.paddingTop),
             secondCoinImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: Constants.paddingsInLine),
@@ -203,6 +204,7 @@ class ConverterCoinsView: UIView {
             secondCoinImageView.widthAnchor.constraint(equalToConstant: Constants.heightMax),
             
             secondCoinShortTitle.topAnchor.constraint(equalTo: secondCoinImageView.bottomAnchor, constant: Constants.paddingBetweenLines),
+            secondCoinShortTitle.heightAnchor.constraint(equalToConstant: Constants.heightMin),
             secondCoinShortTitle.centerXAnchor.constraint(equalTo: secondCoinImageView.centerXAnchor),
             
             iWillHaveLabel.leadingAnchor.constraint(equalTo: secondCoinImageView.trailingAnchor, constant: Constants.paddingsInLine),
@@ -215,12 +217,12 @@ class ConverterCoinsView: UIView {
             
             changeSecondCoinButton.centerYAnchor.constraint(equalTo: secondCoinNumberTextField.centerYAnchor),
             changeSecondCoinButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -Constants.paddingsInLine),
-            changeSecondCoinButton.widthAnchor.constraint(equalToConstant: Constants.heightMin),
-            changeSecondCoinButton.heightAnchor.constraint(equalToConstant: Constants.heightMin),
+            changeSecondCoinButton.widthAnchor.constraint(equalToConstant: Constants.height),
+            changeSecondCoinButton.heightAnchor.constraint(equalToConstant: Constants.height),
             
             swapCoinButton.centerXAnchor.constraint(equalTo: changeSecondCoinButton.centerXAnchor),
-            swapCoinButton.topAnchor.constraint(equalTo: changeFirstCoinButton.bottomAnchor, constant: Constants.paddingTop),
-            swapCoinButton.bottomAnchor.constraint(equalTo: changeSecondCoinButton.topAnchor, constant: -Constants.paddingTop),
+            swapCoinButton.topAnchor.constraint(equalTo: changeFirstCoinButton.bottomAnchor, constant: Constants.paddingBetweenLines),
+            swapCoinButton.bottomAnchor.constraint(equalTo: changeSecondCoinButton.topAnchor, constant: -Constants.paddingBetweenLines),
             
             exchangeCoinsRatesLabel.trailingAnchor.constraint(equalTo: secondCoinNumberTextField.trailingAnchor),
             exchangeCoinsRatesLabel.topAnchor.constraint(equalTo: secondCoinNumberTextField.bottomAnchor, constant: Constants.paddingBetweenLines),
