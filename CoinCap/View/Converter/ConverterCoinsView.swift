@@ -48,10 +48,13 @@ class ConverterCoinsView: UIView {
         return textField
     }()
     
+    // if change second coin text field
     @objc private func changeFirstValue() {
+        // if second textfield empty set first coin empty
         guard firstCoinNumberTextField.text != "" else { return secondCoinNumberTextField.text = "" }
         if let text = firstCoinNumberTextField.text{
             if let number = Double(text) {
+                // calculate and formate result string
                 let numberCoins = String(number * coinsRate)
                 let numberCoinsFormated = DataModel.getPrice(price: numberCoins)
                 secondCoinNumberTextField.text = numberCoinsFormated
@@ -61,7 +64,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var changeFirstCoinButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .black
         return button
@@ -104,10 +107,13 @@ class ConverterCoinsView: UIView {
         return textField
     }()
     
+    // if change second coin text field
     @objc private func changeSecondValue() {
+        // if second textfield empty set first coin empty
         guard secondCoinNumberTextField.text != "" else { return firstCoinNumberTextField.text = "" }
         if let text = secondCoinNumberTextField.text{
             if let number = Double(text) {
+                // calculate and formate result string
                 let numberCoins = String(number / coinsRate)
                 let numberCoinsFormated = DataModel.getPrice(price: numberCoins)
                 firstCoinNumberTextField.text = numberCoinsFormated
@@ -117,7 +123,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var changeSecondCoinButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .black
         return button
@@ -129,6 +135,15 @@ class ConverterCoinsView: UIView {
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    // swap two selected coins button
+    private lazy var swapCoinButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.up.arrow.down"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .black
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -156,6 +171,7 @@ class ConverterCoinsView: UIView {
         addSubview(iWillHaveLabel)
         addSubview(changeSecondCoinButton)
         addSubview(exchangeCoinsRatesLabel)
+        addSubview(swapCoinButton)
     }
     
     private func setConstraintsSubviews() {
@@ -201,6 +217,10 @@ class ConverterCoinsView: UIView {
             changeSecondCoinButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -Constants.paddingsInLine),
             changeSecondCoinButton.widthAnchor.constraint(equalToConstant: Constants.heightMin),
             changeSecondCoinButton.heightAnchor.constraint(equalToConstant: Constants.heightMin),
+            
+            swapCoinButton.centerXAnchor.constraint(equalTo: changeSecondCoinButton.centerXAnchor),
+            swapCoinButton.topAnchor.constraint(equalTo: changeFirstCoinButton.bottomAnchor, constant: Constants.paddingTop),
+            swapCoinButton.bottomAnchor.constraint(equalTo: changeSecondCoinButton.topAnchor, constant: -Constants.paddingTop),
             
             exchangeCoinsRatesLabel.trailingAnchor.constraint(equalTo: secondCoinNumberTextField.trailingAnchor),
             exchangeCoinsRatesLabel.topAnchor.constraint(equalTo: secondCoinNumberTextField.bottomAnchor, constant: Constants.paddingBetweenLines),

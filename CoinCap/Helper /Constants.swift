@@ -25,7 +25,7 @@ class Constants {
     static let paddingsInLine = CGFloat(10)
     static let paddingBetweenLines = CGFloat(15)
     static let heightMax = CGFloat(50)
-    static let heightMin = CGFloat(20)
+    static let heightMin = CGFloat(30)
     
     //constraints collection coins cell
     static let cellpaddingSide = CGFloat(15)
