@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let tabBar = TabBarController()
         window?.rootViewController = LaunchScreen()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.window?.rootViewController = tabBar
         })
         window?.makeKeyAndVisible()

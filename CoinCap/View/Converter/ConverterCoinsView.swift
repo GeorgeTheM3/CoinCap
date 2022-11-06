@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class ConverterCoinsView: UIView {
+    private var coinsRate = 0.0
+    
     private lazy var firstCoinImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "btc")
@@ -47,11 +49,16 @@ class ConverterCoinsView: UIView {
     }()
     
     @objc private func changeFirstValue() {
-        if let text = firstCoinNumberTextField.text {
-            secondCoinNumberTextField.text =  text
+        guard firstCoinNumberTextField.text != "" else { return secondCoinNumberTextField.text = "" }
+        if let text = firstCoinNumberTextField.text{
+            if let number = Double(text) {
+                let numberCoins = String(number * coinsRate)
+                let numberCoinsFormated = DataModel.getPrice(price: numberCoins)
+                secondCoinNumberTextField.text = numberCoinsFormated
+            }
         }
     }
-
+    
     private lazy var changeFirstCoinButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
@@ -98,8 +105,13 @@ class ConverterCoinsView: UIView {
     }()
     
     @objc private func changeSecondValue() {
-        if let text = secondCoinNumberTextField.text {
-            firstCoinNumberTextField.text =  text
+        guard secondCoinNumberTextField.text != "" else { return firstCoinNumberTextField.text = "" }
+        if let text = secondCoinNumberTextField.text{
+            if let number = Double(text) {
+                let numberCoins = String(number / coinsRate)
+                let numberCoinsFormated = DataModel.getPrice(price: numberCoins)
+                firstCoinNumberTextField.text = numberCoinsFormated
+            }
         }
     }
     
@@ -113,9 +125,6 @@ class ConverterCoinsView: UIView {
     
     private lazy var exchangeCoinsRatesLabel: UILabel = {
         let label = UILabel()
-        if let first = firstCoinShortTitle.text, let second = secondCoinShortTitle.text {
-            label.text = "1 \(first) = 20 \(second)"
-        }
         label.font = UIFont.preferredFont(forTextStyle: .footnote).withSize(14)
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -203,11 +212,23 @@ class ConverterCoinsView: UIView {
 extension ConverterCoinsView: OutputControlletProtocol {
     func outputInfo<T>(info: T?) -> T? {
         if let data = info as? (CryptoCoin, CryptoCoin) {
+            // set first coin
             let firstCoin = data.0
             firstCoinImageView.image = firstCoin.image
+            firstCoinShortTitle.text = firstCoin.data.symbol
+            firstCoinNumberTextField.placeholder = "Поменять 10 \(firstCoin.data.symbol)"
             
+            // set second coins
             let secondCoin = data.1
             secondCoinImageView.image = secondCoin.image
+            secondCoinShortTitle.text = secondCoin.data.symbol
+            secondCoinNumberTextField.placeholder = "Получить 10 \(secondCoin.data.symbol)"
+            
+            // get the rate of two coins
+            coinsRate = DataModel.converterCoins(first: firstCoin.data.priceUsd, second: secondCoin.data.priceUsd)
+            // format price to 1.001
+            let formatedCoinsRate = DataModel.getPrice(price: String(coinsRate))
+            exchangeCoinsRatesLabel.text = "1 \(firstCoin.data.name) = \(formatedCoinsRate) \(secondCoin.data.name)"
         }
         return nil
     }

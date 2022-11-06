@@ -22,4 +22,11 @@ class DataModel {
             return String(numb)
         }
     }
+    
+    static func converterCoins(first: String, second: String) -> Double {
+        if let firstPrice = Double(first), let secondPrice = Double(second) {
+            return firstPrice / secondPrice
+        }
+        return 0
+    }
 }
