@@ -233,6 +233,7 @@ class ConverterCoinsView: UIView {
 // extension for get two coins from ConverterCoinsViewController
 extension ConverterCoinsView: OutputControlletProtocol {
     func outputInfo<T>(info: T?) -> T? {
+        (firstCoinNumberTextField.text, secondCoinNumberTextField.text) = (secondCoinNumberTextField.text, firstCoinNumberTextField.text)
         if let data = info as? (CryptoCoin, CryptoCoin) {
             // set first coin
             let firstCoin = data.0
