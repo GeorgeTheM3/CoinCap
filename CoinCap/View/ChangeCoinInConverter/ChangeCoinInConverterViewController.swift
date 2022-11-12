@@ -10,7 +10,7 @@ import UIKit
 
 class ChangeCoinInConverterViewController: UIViewController {
     // properties hold a first or second coin
-    private var curentCoin = 1
+    private var curentCoinTag = 1
     
     //delegate
     var delegateToConverterCoinsViewController: OutputControlletProtocol?
@@ -25,7 +25,7 @@ class ChangeCoinInConverterViewController: UIViewController {
     }()
     
     init(curentCoin: Int, delegate: OutputControlletProtocol ) {
-        self.curentCoin = curentCoin
+        self.curentCoinTag = curentCoin
         delegateToConverterCoinsViewController = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,7 +45,7 @@ class ChangeCoinInConverterViewController: UIViewController {
     
     // func to pass selected coin to ConverterCoinsViewController
     private func changeCoin(coin: CryptoCoin) {
-        delegateToConverterCoinsViewController?.outputInfo(info: (coin, curentCoin))
+        delegateToConverterCoinsViewController?.outputInfo(info: (coin, curentCoinTag))
         dismiss(animated: true)
     }
 }

@@ -91,6 +91,7 @@ class ConverterCoinsViewController: UIViewController {
 // get new selected coin from ChangeCoinInConverterViewController
 extension ConverterCoinsViewController: OutputControlletProtocol {
     func outputInfo<T>(info: T?) -> T? {
+        // data = (coin,buttonTag)
         if let data = info as? (CryptoCoin, Int) {
             if data.1 == 1 {
                 firstCoin = data.0

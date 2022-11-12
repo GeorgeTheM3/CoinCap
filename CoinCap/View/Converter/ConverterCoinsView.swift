@@ -46,7 +46,7 @@ class ConverterCoinsView: UIView {
         textField.borderStyle = .roundedRect
         textField.clipsToBounds = true
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.addTarget(self, action: #selector(changeFirstValue), for: .editingChanged)
+        textField.addTarget(self, action: #selector(changeFirstValue), for: .allEditingEvents)
         return textField
     }()
     
@@ -106,7 +106,7 @@ class ConverterCoinsView: UIView {
         textField.layer.cornerRadius = 15
         textField.borderStyle = .roundedRect
         textField.clipsToBounds = true
-        textField.addTarget(self, action: #selector(changeSecondValue), for: .editingChanged)
+        textField.addTarget(self, action: #selector(changeSecondValue), for: .allEditingEvents)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -168,6 +168,15 @@ class ConverterCoinsView: UIView {
                 self.firstCoinImageView.transform = .identity
                 self.secondCoinImageView.transform = .identity
             }
+        }
+    }
+    
+    // func for cleanin text filds when changed coin
+    private func clearNumberOfCoinsTextFields(first: String?, second: String?) {
+        // (first = second) and (second = first) because there values come swaped from ConverterCoinsViewController
+        if firstCoinShortTitle.text != second || secondCoinShortTitle.text != first {
+            firstCoinNumberTextField.text = ""
+            secondCoinNumberTextField.text = ""
         }
     }
     
@@ -260,6 +269,8 @@ extension ConverterCoinsView: OutputControlletProtocol {
     func outputInfo<T>(info: T?) -> T? {
         (firstCoinNumberTextField.text, secondCoinNumberTextField.text) = (secondCoinNumberTextField.text, firstCoinNumberTextField.text)
         if let data = info as? (CryptoCoin, CryptoCoin) {
+            // if on of coin changed -> clear taxt fields
+            clearNumberOfCoinsTextFields(first: data.0.data.symbol, second: data.1.data.symbol)
             // set first coin
             let firstCoin = data.0
             firstCoinImageView.image = firstCoin.image

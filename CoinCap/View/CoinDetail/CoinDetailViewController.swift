@@ -18,7 +18,7 @@ class CoinDetailViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.frame = CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height)
+        tableView.frame = CGRect(x: 0, y: 20, width: view.frame.width, height: 400)
         return tableView
     }()
     
