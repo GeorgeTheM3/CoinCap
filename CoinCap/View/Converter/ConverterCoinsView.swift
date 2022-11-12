@@ -38,6 +38,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var firstCoinNumberTextField: UITextField = {
         let textField = UITextField()
+        textField.keyboardType = .numberPad
         textField.backgroundColor = .white
         textField.placeholder = "10 BTC"
         textField.layer.borderWidth = 1
@@ -98,6 +99,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var secondCoinNumberTextField: UITextField = {
         let textField = UITextField()
+        textField.keyboardType = .numberPad
         textField.placeholder = "200 ETH"
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1

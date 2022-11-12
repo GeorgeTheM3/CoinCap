@@ -26,7 +26,8 @@ class ConverterCoinsViewController: UIViewController {
         super.viewDidLoad()
         setupConverterViewController()
         getTwoStandartCoins()
-        gestureCloseKeyboard() // gesture
+        // gesture tap to close keyboard
+        gestureCloseKeyboard()
         // trasfer two coins to ConverterCoinsView
         outputInfoToView?.outputInfo(info: (firstCoin, secondCoin))
     }
@@ -45,6 +46,7 @@ class ConverterCoinsViewController: UIViewController {
         return view
     }
     
+    // gesture tap to close keyboard
     private func gestureCloseKeyboard() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboardSwipe))
         gestureRecognizer.numberOfTouchesRequired = 1
@@ -52,7 +54,6 @@ class ConverterCoinsViewController: UIViewController {
         view.addGestureRecognizer(gestureRecognizer)
         view.isUserInteractionEnabled = true
     }
-    
     @objc private func closeKeyboardSwipe(_ gesture: UITapGestureRecognizer) {
         view.endEditing(true)
     }
