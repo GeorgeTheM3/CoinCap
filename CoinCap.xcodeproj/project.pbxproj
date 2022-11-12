@@ -21,6 +21,7 @@
 		5E34A41D28F843AD00637BE7 /* CoinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */; };
 		5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */; };
 		5E365C5A291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E365C59291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift */; };
+		5E365C5C291F9A9E00F85EC4 /* ButtonsActionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E365C5B291F9A9E00F85EC4 /* ButtonsActionsProtocol.swift */; };
 		5E4D56CB29091B6F0076A697 /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D56CA29091B6F0076A697 /* CoinDetailViewController.swift */; };
 		5E4D56CD2909A5390076A697 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D56CC2909A5390076A697 /* LaunchScreen.swift */; };
 		5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CA3290028CF002A0030 /* TabBarController.swift */; };
@@ -51,6 +52,7 @@
 		5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCustomCell.swift; sourceTree = "<group>"; };
 		5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateToViewProtocol.swift; sourceTree = "<group>"; };
 		5E365C59291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCoinInConverterViewController.swift; sourceTree = "<group>"; };
+		5E365C5B291F9A9E00F85EC4 /* ButtonsActionsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsActionsProtocol.swift; sourceTree = "<group>"; };
 		5E4D56CA29091B6F0076A697 /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		5E4D56CC2909A5390076A697 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		5E7D1CA3290028CF002A0030 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				5E99F3C0290595EE00E34764 /* OutputPresenter.swift */,
 				5EF9D31C2916570D0049384B /* OutputControllerProtocol.swift */,
 				5EF9D31E291657830049384B /* InputControllerProtocol.swift */,
+				5E365C5B291F9A9E00F85EC4 /* ButtonsActionsProtocol.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				5E34A3F728F80A2D00637BE7 /* SceneDelegate.swift in Sources */,
 				5E4D56CD2909A5390076A697 /* LaunchScreen.swift in Sources */,
 				5E2DC7392904F4BD00EC49BE /* InputInPresenter.swift in Sources */,
+				5E365C5C291F9A9E00F85EC4 /* ButtonsActionsProtocol.swift in Sources */,
 				5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */,
 				5E4D56CB29091B6F0076A697 /* CoinDetailViewController.swift in Sources */,
 				5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */,

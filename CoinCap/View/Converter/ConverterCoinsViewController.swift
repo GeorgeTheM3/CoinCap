@@ -12,7 +12,7 @@ class ConverterCoinsViewController: UIViewController {
     private let presenter = Presenter()
     private var outputInfoToView: OutputControlletProtocol? // pass info to ConverterCoinsView
     private var delegateSwapButton: InputControlletProtocol? // get touch from ConverterCoinsView and swap coins
-    private var delegateTapButtonChangeCoin: DelegateToViewProtocol? // to show ChangeCoinInConverterViewController
+    private var delegateTapButtonChangeCoin: ButtonsActionsProtocol? // to show ChangeCoinInConverterViewController
     
     private var firstCoin: CryptoCoin?
     private var secondCoin: CryptoCoin?
@@ -62,12 +62,15 @@ class ConverterCoinsViewController: UIViewController {
     }
     // if user press change coin button in ConverterCoinsView need show ChangeCoinInConverterViewController
     private func changeCoinButtonAction() {
-        delegateTapButtonChangeCoin?.delgateToView(info: #selector(changeCoinButton))
+        delegateTapButtonChangeCoin?.tapButton(buttonTag: 1, selector: #selector(changeFirstCoinButton))
+        delegateTapButtonChangeCoin?.tapButton(buttonTag: 2, selector: #selector(changeSecondCoinButton))
     }
     // show ChangeCoinInConverterViewController
-    @objc private func changeCoinButton() {
+    @objc private func changeFirstCoinButton() {
+        present(ChangeCoinInConverterViewController(), animated: true)
+    }
+          
+    @objc private func changeSecondCoinButton() {
         present(ChangeCoinInConverterViewController(), animated: true)
     }
 }
-
-

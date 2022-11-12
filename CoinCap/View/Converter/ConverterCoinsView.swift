@@ -64,6 +64,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var changeFirstCoinButton: UIButton = {
         let button = UIButton()
+        button.tag = 1
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .black
@@ -123,6 +124,7 @@ class ConverterCoinsView: UIView {
     
     private lazy var changeSecondCoinButton: UIButton = {
         let button = UIButton()
+        button.tag = 2
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .black
@@ -267,10 +269,12 @@ extension ConverterCoinsView: InputControlletProtocol {
     }
 }
 
-extension ConverterCoinsView: DelegateToViewProtocol {
-    func delgateToView<T>(info: T?) {
-        if let action = info as? Selector {
-            changeFirstCoinButton.addTarget(Any.self, action: action, for: .touchUpInside)
+extension ConverterCoinsView: ButtonsActionsProtocol {
+    func tapButton(buttonTag: Int, selector: Selector) {
+        if buttonTag == 1 {
+            changeFirstCoinButton.addTarget(Any.self, action: selector, for: .touchUpInside)
+        } else {
+            changeSecondCoinButton.addTarget(Any.self, action: selector, for: .touchUpInside)
         }
     }
 }
