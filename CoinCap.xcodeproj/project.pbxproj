@@ -20,6 +20,7 @@
 		5E34A41928F81AA800637BE7 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41828F81AA800637BE7 /* LocalStorage.swift */; };
 		5E34A41D28F843AD00637BE7 /* CoinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */; };
 		5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */; };
+		5E365C5A291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E365C59291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift */; };
 		5E4D56CB29091B6F0076A697 /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D56CA29091B6F0076A697 /* CoinDetailViewController.swift */; };
 		5E4D56CD2909A5390076A697 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D56CC2909A5390076A697 /* LaunchScreen.swift */; };
 		5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CA3290028CF002A0030 /* TabBarController.swift */; };
@@ -49,6 +50,7 @@
 		5E34A41828F81AA800637BE7 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		5E34A41C28F843AD00637BE7 /* CoinCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCustomCell.swift; sourceTree = "<group>"; };
 		5E34A41F28F84B9200637BE7 /* DelegateToViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateToViewProtocol.swift; sourceTree = "<group>"; };
+		5E365C59291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCoinInConverterViewController.swift; sourceTree = "<group>"; };
 		5E4D56CA29091B6F0076A697 /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		5E4D56CC2909A5390076A697 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		5E7D1CA3290028CF002A0030 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				5E7D1CA92901C505002A0030 /* CollectionCoins */,
 				5E4D56C929091B530076A697 /* CoinDetail */,
 				5E7D1CAA2901C522002A0030 /* Converter */,
+				5E365C58291ED3AC00F85EC4 /* ChangeCoinInConverter */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +176,14 @@
 				5EF9D31E291657830049384B /* InputControllerProtocol.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		5E365C58291ED3AC00F85EC4 /* ChangeCoinInConverter */ = {
+			isa = PBXGroup;
+			children = (
+				5E365C59291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift */,
+			);
+			path = ChangeCoinInConverter;
 			sourceTree = "<group>";
 		};
 		5E4D56C929091B530076A697 /* CoinDetail */ = {
@@ -289,6 +300,7 @@
 				5E7D1CA4290028CF002A0030 /* TabBarController.swift in Sources */,
 				5E4D56CB29091B6F0076A697 /* CoinDetailViewController.swift in Sources */,
 				5E34A42028F84B9200637BE7 /* DelegateToViewProtocol.swift in Sources */,
+				5E365C5A291ED40C00F85EC4 /* ChangeCoinInConverterViewController.swift in Sources */,
 				5E34A41328F80BA100637BE7 /* CryptoProtocol.swift in Sources */,
 				5E7D1CA629002BDD002A0030 /* ConverterCoinsViewController.swift in Sources */,
 				5EF9D31F291657830049384B /* InputControllerProtocol.swift in Sources */,

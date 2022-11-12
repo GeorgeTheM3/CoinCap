@@ -266,3 +266,11 @@ extension ConverterCoinsView: InputControlletProtocol {
         return nil
     }
 }
+
+extension ConverterCoinsView: DelegateToViewProtocol {
+    func delgateToView<T>(info: T?) {
+        if let action = info as? Selector {
+            changeFirstCoinButton.addTarget(Any.self, action: action, for: .touchUpInside)
+        }
+    }
+}
