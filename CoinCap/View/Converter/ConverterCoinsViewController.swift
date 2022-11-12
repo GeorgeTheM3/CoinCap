@@ -84,6 +84,7 @@ extension ConverterCoinsViewController: OutputControlletProtocol {
                 secondCoin = data.0
             }
         }
+        outputInfoToView?.outputInfo(info: (firstCoin, secondCoin))
         return nil
     }
 }
