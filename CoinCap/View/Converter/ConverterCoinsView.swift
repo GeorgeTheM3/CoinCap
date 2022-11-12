@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class ConverterCoinsView: UIView {
+    // property hold formated coin rate
     private var coinsRate = 0.0
     
     private lazy var firstCoinImageView: UIImageView = {
@@ -148,6 +149,26 @@ class ConverterCoinsView: UIView {
         return button
     }()
     
+    // swap coins animation button
+    private func swapAnimation() {
+        UIView.animate(withDuration: 0.05) {
+            self.swapCoinButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.05) {
+                self.swapCoinButton.transform = .identity
+            }
+        }
+        UIView.animate(withDuration: 0) {
+            self.firstCoinImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            self.secondCoinImageView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.firstCoinImageView.transform = .identity
+                self.secondCoinImageView.transform = .identity
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         createSubviews()
@@ -255,6 +276,8 @@ extension ConverterCoinsView: OutputControlletProtocol {
             let formatedCoinsRate = DataModel.getPrice(price: String(coinsRate))
             exchangeCoinsRatesLabel.text = "1 \(firstCoin.data.name) = \(formatedCoinsRate) \(secondCoin.data.name)"
         }
+        // animation button
+        swapAnimation()
         return nil
     }
 }
