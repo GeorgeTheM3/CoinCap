@@ -268,7 +268,7 @@ extension ConverterCoinsView: InputControlletProtocol {
         return nil
     }
 }
-
+// extansion to present ChangeCoinInConverterViewController if tapped change button
 extension ConverterCoinsView: ButtonsActionsProtocol {
     func tapButton(buttonTag: Int, selector: Selector) {
         if buttonTag == 1 {

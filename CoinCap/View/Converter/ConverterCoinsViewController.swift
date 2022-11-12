@@ -67,10 +67,23 @@ class ConverterCoinsViewController: UIViewController {
     }
     // show ChangeCoinInConverterViewController
     @objc private func changeFirstCoinButton() {
-        present(ChangeCoinInConverterViewController(), animated: true)
+        present(ChangeCoinInConverterViewController(curentCoin: 1, delegate: self), animated: true)
     }
-          
     @objc private func changeSecondCoinButton() {
-        present(ChangeCoinInConverterViewController(), animated: true)
+        present(ChangeCoinInConverterViewController(curentCoin: 2, delegate: self), animated: true)
+    }
+}
+
+// get new selected coin from ChangeCoinInConverterViewController
+extension ConverterCoinsViewController: OutputControlletProtocol {
+    func outputInfo<T>(info: T?) -> T? {
+        if let data = info as? (CryptoCoin, Int) {
+            if data.1 == 1 {
+                firstCoin = data.0
+            } else {
+                secondCoin = data.0
+            }
+        }
+        return nil
     }
 }
