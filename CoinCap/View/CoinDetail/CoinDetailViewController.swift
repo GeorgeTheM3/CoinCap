@@ -35,6 +35,7 @@ class CoinDetailViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setViewController()
+        view.backgroundColor = .red
     }
     
     private func setViewController() {
@@ -100,7 +101,9 @@ extension CoinDetailViewController: UITableViewDataSource {
 }
 
 extension CoinDetailViewController: CryptoProtocol {
-    func getCryptoCoin(data: CryptoCoin) {
-        curentCoin = data
+    func refreshCoinPrices(data: CryptoData) {
+    }
+    
+    func getCryptoCoin(data: [CryptoCoin]) {
     }
 }

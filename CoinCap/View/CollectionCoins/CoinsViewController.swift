@@ -12,6 +12,8 @@ class CoinsViewController: UIViewController {
     let spaceSize = CGFloat(15)
     let spacesBetweenLines = CGFloat(10)
     let numberOfItems = CGFloat(1)
+    
+    var isLoading = false // downloading data from json status
 
     private let presenter = Presenter()
     private lazy var criptoCoins: [CryptoCoin] = []
@@ -33,7 +35,8 @@ class CoinsViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setViewController()
-        presenter.getData()
+        presenter.getData(url: Constants.shared.getJsonURL(key: 20))
+        pullToRefreshCoinsData()
     }
     
     private func setViewController() {
@@ -45,8 +48,23 @@ class CoinsViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(coinsCollectionView)
     }
+    
+    // pull to refresh
+    private func pullToRefreshCoinsData() {
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .orange
+        refresh.addTarget(self, action: #selector(pullToRefreshCoinDataAction), for: .valueChanged)
+        coinsCollectionView.refreshControl = refresh
+        coinsCollectionView.prefetchDataSource = self
+    }
+    // pull to refresh action
+    @objc private func pullToRefreshCoinDataAction() {
+        presenter.refreshCoinsCrices(numberOfCoins: criptoCoins.count)
+        coinsCollectionView.refreshControl?.endRefreshing()
+    }
 }
 
+// MARK: UICollectionViewDataSource
 extension CoinsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         criptoCoins.count
@@ -74,6 +92,7 @@ extension CoinsViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension CoinsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCoin = criptoCoins[indexPath.row]
@@ -82,9 +101,33 @@ extension CoinsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: UICollectionViewDataSourcePrefetching
+extension CoinsViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let maxCell = indexPaths.map({$0.row}).max() else { return }
+        if maxCell > (criptoCoins.count - 5) && !isLoading {
+            isLoading = true
+            let offset = criptoCoins.count
+            presenter.getData(url: Constants.shared.getJsonOffsetURL(offset: offset, limit: 10))
+        }
+    }
+}
+
+//MARK: Delegate CryptoProtocol
 extension CoinsViewController: CryptoProtocol {
-    func getCryptoCoin(data: CryptoCoin) {
-        criptoCoins.append(data)
+    // func for refreshing data in criptoCoins
+    func refreshCoinPrices(data: CryptoData) {
+        for index in criptoCoins.indices {
+            criptoCoins[index].data = data.data[index]
+        }
+        DispatchQueue.main.async {
+            self.coinsCollectionView.reloadData()
+        }
+    }
+    // func for get data from json
+    func getCryptoCoin(data: [CryptoCoin]) {
+        criptoCoins += data
+        isLoading = false
         DispatchQueue.main.async {
             self.coinsCollectionView.reloadData()
         }

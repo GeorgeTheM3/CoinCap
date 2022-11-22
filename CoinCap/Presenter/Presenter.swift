@@ -14,23 +14,29 @@ class Presenter {
         self.delegate = view
     }
     
-    public func getData() {
-        NetworkManager.shared.fetchData(url: Constants.shared.jsonURL, model: CryptoData.self) { result in
+    // load json for url
+    public func getData(url: String) {
+        NetworkManager.shared.fetchData(url: url , model: CryptoData.self) { result in
+            var coinsArray: [CryptoCoin] = []
             for item in result.data {
                 let key = "\(item.symbol.lowercased())"
                 let resultURL = Constants.shared.getImageURL(key: key)
+                // load image to curent coin
                 NetworkManager.shared.loadImage(url: resultURL) { image in
                     let coin = CryptoCoin(data: item, image: image)
                     LocalStorage.shared.coinsStorage.append(coin)
-                    self.delegate?.getCryptoCoin(data: coin)
+                    coinsArray.append(coin)
                 }
             }
+            // pas data
+            self.delegate?.getCryptoCoin(data: coinsArray)
         }
     }
     
-    public func getDetail(index: Int) {
-        let coin = LocalStorage.shared.coinsStorage[index]
-        delegate?.getCryptoCoin(data: coin)
+    public func refreshCoinsCrices(numberOfCoins: Int) {
+        NetworkManager.shared.fetchData(url: Constants.shared.getJsonURL(key: numberOfCoins), model: CryptoData.self) { result in
+            self.delegate?.refreshCoinPrices(data: result)
+        }
     }
 }
 

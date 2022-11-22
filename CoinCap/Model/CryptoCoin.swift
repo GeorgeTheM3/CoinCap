@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CryptoCoin {
-    let data: Coin
+    var data: Coin
     let image: UIImage
     
     init(data: Coin, image: UIImage) {
