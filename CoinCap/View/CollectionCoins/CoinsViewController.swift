@@ -48,7 +48,7 @@ class CoinsViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(coinsCollectionView)
     }
-    
+
     // pull to refresh
     private func pullToRefreshCoinsData() {
         let refresh = UIRefreshControl()
@@ -104,6 +104,7 @@ extension CoinsViewController: UICollectionViewDelegateFlowLayout {
 //MARK: UICollectionViewDataSourcePrefetching
 extension CoinsViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard criptoCoins.count != 100 else { return }
         guard let maxCell = indexPaths.map({$0.row}).max() else { return }
         if maxCell > (criptoCoins.count - 5) && !isLoading {
             isLoading = true

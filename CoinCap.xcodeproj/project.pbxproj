@@ -29,7 +29,6 @@
 		5E7D1CA82900390C002A0030 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CA72900390C002A0030 /* DataModel.swift */; };
 		5E7D1CAC2901C60D002A0030 /* ConverterCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D1CAB2901C60D002A0030 /* ConverterCoinsView.swift */; };
 		5E99F3C1290595EE00E34764 /* OutputPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E99F3C0290595EE00E34764 /* OutputPresenter.swift */; };
-		5E9A9C1D290C45B100370CA8 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A9C1C290C45B100370CA8 /* Navigation.swift */; };
 		5ED9A90F28FA86BF0015EDA6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED9A90E28FA86BF0015EDA6 /* Constants.swift */; };
 		5EF9D31D2916570D0049384B /* OutputControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9D31C2916570D0049384B /* OutputControllerProtocol.swift */; };
 		5EF9D31F291657830049384B /* InputControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9D31E291657830049384B /* InputControllerProtocol.swift */; };
@@ -60,7 +59,6 @@
 		5E7D1CA72900390C002A0030 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		5E7D1CAB2901C60D002A0030 /* ConverterCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCoinsView.swift; sourceTree = "<group>"; };
 		5E99F3C0290595EE00E34764 /* OutputPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputPresenter.swift; sourceTree = "<group>"; };
-		5E9A9C1C290C45B100370CA8 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		5ED9A90E28FA86BF0015EDA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5EF9D31C2916570D0049384B /* OutputControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputControllerProtocol.swift; sourceTree = "<group>"; };
 		5EF9D31E291657830049384B /* InputControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControllerProtocol.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				5E34A40B28F80A9600637BE7 /* Presenter.swift */,
-				5E9A9C1C290C45B100370CA8 /* Navigation.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -293,7 +290,6 @@
 				5E7D1CA82900390C002A0030 /* DataModel.swift in Sources */,
 				5E34A3F528F80A2D00637BE7 /* AppDelegate.swift in Sources */,
 				5E34A40C28F80A9700637BE7 /* Presenter.swift in Sources */,
-				5E9A9C1D290C45B100370CA8 /* Navigation.swift in Sources */,
 				5E99F3C1290595EE00E34764 /* OutputPresenter.swift in Sources */,
 				5EF9D31D2916570D0049384B /* OutputControllerProtocol.swift in Sources */,
 				5E34A41728F80D4700637BE7 /* CryptoData.swift in Sources */,
